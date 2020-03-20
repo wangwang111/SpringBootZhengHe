@@ -2,6 +2,10 @@ package com.example.zhenghe;
 
 import com.example.zhenghe.model.Employee;
 import org.junit.jupiter.api.Test;
+import org.springframework.amqp.core.AmqpAdmin;
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,6 +18,20 @@ public class RabbitMqTest {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
+    @Autowired
+    private AmqpAdmin amqpAdmin;
+
+    @Test
+    public void createExchange() {
+//        amqpAdmin.declareExchange(new DirectExchange("amqpadmin.exchange"));
+//        amqpAdmin.declareQueue(new Queue("admqadmin.queue", true ));
+        amqpAdmin.declareBinding(new Binding(
+                "admqadmin.queue",
+                Binding.DestinationType.QUEUE,
+                "amqpadmin.exchange",
+                "admin.test",
+                null));
+    }
 
     @Test
     public void send() {
