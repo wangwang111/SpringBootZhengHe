@@ -4,18 +4,16 @@ import com.example.zhenghe.model.Employee;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
 
 @SpringBootTest
 public class RedisTest {
 
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;  // 操作k-v都是字符串
-    @Autowired
-    private RedisTemplate redisTemplate;  // 操作k-v都是对象的
-    @Autowired
-    private RedisTemplate<Object, Employee> empRedisTemplate;
+//    @Autowired
+//    private StringRedisTemplate stringRedisTemplate;  // 操作k-v都是字符串
+//    @Autowired
+//    private RedisTemplate redisTemplate;  // 操作k-v都是对象的
+//    @Autowired
+//    private RedisTemplate<Object, Employee> empRedisTemplate;
 
     /**
      * Redsi常见的五大数据类型
@@ -33,8 +31,8 @@ public class RedisTest {
 //        String msg = stringRedisTemplate.opsForValue().get("msg");
 //        System.out.println(msg);
 
-        stringRedisTemplate.opsForList().leftPush("mylist", "1");
-        stringRedisTemplate.opsForList().leftPush("mylist", "2");
+//        stringRedisTemplate.opsForList().leftPush("mylist", "1");
+//        stringRedisTemplate.opsForList().leftPush("mylist", "2");
     }
 
     /**
@@ -49,8 +47,8 @@ public class RedisTest {
         // 1.自己将对象转换为json
         // 2.redisTemplate默认的序列化规则
 //        redisTemplate.opsForValue().set("emp-4", new Employee("wang", 1));
-        Employee employee = (Employee) redisTemplate.opsForValue().get("emp-4");
-        System.out.println(employee);
+//        Employee employee = (Employee) redisTemplate.opsForValue().get("emp-4");
+//        System.out.println(employee);
     }
 
 }

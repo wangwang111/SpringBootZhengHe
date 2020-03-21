@@ -7,8 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringbootzhengheApplicationTests {
+public class DempartmentTest {
 
+    @Autowired
+    private DepartmentMapper departmentMapper;
 
+    @Test
+    void contextLoads() {
+        Department deptById = departmentMapper.getDeptById(1);
+        System.out.println(deptById);
+    }
 
 }

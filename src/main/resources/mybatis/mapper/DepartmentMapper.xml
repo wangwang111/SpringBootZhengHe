@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.zhenghe.mapper.DepartmentMapper">
+
+    <select id="getDeptById" resultType="com.example.zhenghe.model.Department">
+        SELECT * FROM department WHERE id=#{id}
+    </select>
+
+    <update id="update" parameterType="com.example.zhenghe.model.Department">
+        update department
+        set department_name = #{departmentName}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteEmpById">
+        delete
+        from department
+        where id = #{id}
+    </delete>
+</mapper>

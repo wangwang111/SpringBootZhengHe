@@ -12,10 +12,10 @@ import org.springframework.context.annotation.Configuration;
  * @JmsListener(JMS)、@RabbitListener(AMQP)注解在方法上监听消息代理发布消息
  * @EnsbleJms、@EnableRabbit开启支持
  */
-@Configuration
+//@Configuration
 public class RabbitMQConfig {
 
-    @Bean
+//    @Bean
     public MessageConverter messageConverter(){
         return new Jackson2JsonMessageConverter();
     }
